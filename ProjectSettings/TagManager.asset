@@ -9,6 +9,9 @@ TagManager:
   - Coin
   - Bo_up
   - Bo_down
+  - Opponent
+  - PowerUpBox
+  - Bumper
   layers:
   - Default
   - TransparentFX
