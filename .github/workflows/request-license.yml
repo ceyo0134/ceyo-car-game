@@ -1,0 +1,19 @@
+name: Unity License İste
+
+on:
+  workflow_dispatch:
+
+jobs:
+  request:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Request activation file
+        run: |
+          docker run --rm -v "$PWD:/root" unityci/editor:ubuntu-2021.3.21f1-android-3 \
+            unity-editor -batchmode -createManualActivationFile -logFile /dev/stdout -quit || true
+      - name: Upload alf
+        uses: actions/upload-artifact@v4
+        with:
+          name: unity-activation-file
+          path: ./*.alf
