@@ -23,7 +23,7 @@ public class Trigger : MonoBehaviour
             else if (other.CompareTag("Bo_down"))
             {
                 Move player = GameObject.FindWithTag("Player").GetComponent<Move>();
-                player.speed -= player.acceleration * 10;
+                player.ApplySlowEffect(player.acceleration * 10);
             }
             else if (other.CompareTag("Coin"))
             {
